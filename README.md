@@ -1,6 +1,6 @@
 # 🌟 LUMORA
 
-LUMORA is a modern web-based shopping application built with **HTML, CSS, and JavaScript**.  
+LUMORA is a modern web-based perfume shopping application built with **HTML, CSS, and JavaScript**.  
 It provides users with an intuitive interface to browse, view, and purchase products seamlessly.
 
 ---

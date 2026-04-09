@@ -19,5 +19,5 @@ It provides users with an intuitive interface to browse, view, and purchase prod
 
 - **HTML5** – Structure and layout  
 - **CSS3** – Styling and responsive design  
-- **JavaScript (ES6)** – Interactivity and dynamic content  
+- **JavaScript** – Interactivity and dynamic content  
 ---

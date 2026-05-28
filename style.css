@@ -3,14 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: "Poppins", sans-serif;
     background: #fff;
     padding: 0 0 40px 0;
 }
 .navbar {
-    background:#343955;         /* deep navy */
+    background:#343955;       
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -18,7 +17,6 @@ body {
     padding: 20px;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
-
 @media (max-width: 768px) {
     .navbar {
         padding: 15px;

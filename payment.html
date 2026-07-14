@@ -30,13 +30,13 @@
             margin-bottom: 30px;
         }
 
-        /* Payment method selection tabs */
+        
         .payment-methods {
             display: flex;
             justify-content: center;
             margin-bottom: 25px;
             gap: 15px;
-            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+            flex-wrap: wrap; 
         }
 
         .payment-method-tab {
@@ -47,7 +47,7 @@
             font-weight: bold;
             color: #1d2321;
             transition: background-color 0.3s ease, color 0.3s ease;
-            white-space: nowrap; /* Prevent text from wrapping inside tab */
+            white-space: nowrap; 
         }
 
         .payment-method-tab.active {
@@ -59,7 +59,7 @@
             background-color: #e0e0e0;
         }
 
-        /* Form styling */
+        
         .payment-form label {
             display: block;
             margin-bottom: 8px;
@@ -95,7 +95,7 @@
             background-color: #218838;
         }
 
-        /* Online payment specific styles */
+        
         .online-payment-options {
             margin-top: 20px;
             padding: 20px;
@@ -111,15 +111,15 @@
         }
 
         .online-payment-options .pay-now-btn {
-            background-color: #007bff; /* Different color for online pay */
-            margin: 5px; /* Add some margin between buttons */
+            background-color: #007bff; 
+            margin: 5px; 
         }
 
         .online-payment-options .pay-now-btn:hover {
             background-color: #0056b3;
         }
 
-        /* Cash on Delivery specific styles */
+        
         .cod-options {
             margin-top: 20px;
             padding: 20px;
@@ -135,7 +135,7 @@
         }
 
         .cod-options .confirm-cod-btn {
-            background-color: #ffc107; /* Yellowish color for COD */
+            background-color: #ffc107; 
             color: #333;
             border: none;
             padding: 15px 30px;
@@ -152,7 +152,7 @@
 
 
         .success-message {
-            display: none; /* Hidden by default */
+            display: none; 
             margin-top: 30px;
         }
 
@@ -268,27 +268,25 @@
     <script>
         const cardTab = document.querySelector('[data-method="card"]');
         const onlineTab = document.querySelector('[data-method="online"]');
-        const codTab = document.querySelector('[data-method="cod"]'); // New COD tab
+        const codTab = document.querySelector('[data-method="cod"]'); 
         
         const cardPaymentForm = document.getElementById("card-payment-form");
         const onlinePaymentOptions = document.getElementById("online-payment-options");
-        const codOptions = document.getElementById("cod-options"); // New COD section
+        const codOptions = document.getElementById("cod-options"); 
 
         const payWithCardBtn = document.getElementById("pay-with-card-btn");
         const payWithGPayBtn = document.getElementById("pay-with-gpay-btn");
         const payWithPhonePeBtn = document.getElementById("pay-with-phonepe-btn");
         const payWithOtherOnlineBtn = document.getElementById("pay-with-other-online-btn");
-        const confirmCodBtn = document.getElementById("confirm-cod-btn"); // New COD button
+        const confirmCodBtn = document.getElementById("confirm-cod-btn"); 
 
         const paymentSection = document.getElementById("payment-section");
         const successMessage = document.getElementById("success-message");
 
-        // Function to handle payment/order success
         function handleOrderSuccess() {
-            localStorage.removeItem("cart"); // Clear the cart
-            paymentSection.style.display = "none"; // Hide payment section
-            successMessage.style.display = "block"; // Show success message
-            // Update success message text for COD
+            localStorage.removeItem("cart"); 
+            paymentSection.style.display = "none"; 
+            successMessage.style.display = "block"; 
             if (document.querySelector('.payment-method-tab.active').dataset.method === 'cod') {
                 successMessage.querySelector('h2').textContent = "Order Confirmed (Cash on Delivery)!";
                 successMessage.querySelector('p').textContent = "Your order has been placed and will be delivered soon. Please keep the cash ready.";
@@ -298,16 +296,12 @@
             }
         }
 
-        // Function to switch payment method views
         function showPaymentMethod(method) {
-            // Deactivate all tabs
             document.querySelectorAll('.payment-method-tab').forEach(tab => tab.classList.remove('active'));
-            // Hide all content sections
             cardPaymentForm.style.display = "none";
             onlinePaymentOptions.style.display = "none";
             codOptions.style.display = "none";
 
-            // Activate selected tab and show corresponding content
             if (method === 'card') {
                 cardTab.classList.add('active');
                 cardPaymentForm.style.display = "block";
@@ -320,49 +314,43 @@
             }
         }
 
-        // Initial display (default to card payment)
         showPaymentMethod('card');
 
-        // Event listeners for payment method tabs
         cardTab.addEventListener("click", () => showPaymentMethod('card'));
         onlineTab.addEventListener("click", () => showPaymentMethod('online'));
-        codTab.addEventListener("click", () => showPaymentMethod('cod')); // New event listener for COD tab
+        codTab.addEventListener("click", () => showPaymentMethod('cod')); 
 
-        // Event listener for "Pay with Card" button
         payWithCardBtn.addEventListener("click", () => {
-            // Basic validation (you'd add more robust validation here)
             const cardNumber = document.getElementById("card-number").value;
             const cardName = document.getElementById("card-name").value;
             const expiryDate = document.getElementById("expiry-date").value;
             const cvv = document.getElementById("cvv").value;
 
             if (cardNumber && cardName && expiryDate && cvv) {
-                alert("Processing card payment..."); // Simulate processing
+                alert("Processing card payment..."); 
                 handleOrderSuccess();
             } else {
                 alert("Please fill in all card details.");
             }
         });
 
-        // Event listeners for online payment buttons (simulated)
         payWithGPayBtn.addEventListener("click", () => {
-            alert("Redirecting to Google Pay..."); // Simulate redirect
+            alert("Redirecting to Google Pay..."); 
             handleOrderSuccess();
         });
 
         payWithPhonePeBtn.addEventListener("click", () => {
-            alert("Redirecting to PhonePe..."); // Simulate redirect
+            alert("Redirecting to PhonePe..."); 
             handleOrderSuccess();
         });
 
         payWithOtherOnlineBtn.addEventListener("click", () => {
-            alert("Redirecting to generic online payment gateway..."); // Simulate redirect
+            alert("Redirecting to generic online payment gateway..."); 
             handleOrderSuccess();
         });
 
-        // Event listener for "Confirm Order with COD" button
         confirmCodBtn.addEventListener("click", () => {
-            alert("Confirming Cash on Delivery order..."); // Simulate confirmation
+            alert("Confirming Cash on Delivery order..."); 
             handleOrderSuccess();
         });
     </script>

@@ -124,7 +124,7 @@ body {
 .navbar-menu-toggle {
     display: none;
 }
-/* side nav */
+
 .side-navbar {
     background-color: #1d2321;
     width: 100vw;
@@ -142,7 +142,7 @@ body {
 }
 
 .side-navbar.open {
-    height: 220px; /* Adjust height as needed for your content */
+    height: 220px; 
     padding-top: 32px;
     padding-bottom: 32px;
 }
@@ -215,7 +215,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-top: 0; /* Remove extra space above icons */
+  margin-top: 0; 
   margin-bottom: 40px;
   font-size: 1.1rem;
   font-weight: 500;
@@ -262,7 +262,7 @@ body {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    grid-template-columns: repeat(4, 1fr); 
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -379,7 +379,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Button at bottom-center */
+
 .shop-btn {
     position: absolute;
     bottom: 15px;
@@ -422,21 +422,21 @@ body {
     }
 }
 
-/* button */
+
 .button {
     text-decoration: none !important;
     padding: auto;
     margin: auto;
-    background-color: #1d2321; /* Dark background */
-    color: #fff; /* Text color */
+    background-color: #1d2321; 
+    color: #fff; 
     padding: 10px 20px;
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
 }
 .button:hover {
-    background-color: #d57eca; /* Change color on hover */
-    color: #1d2321; /* Change text color on hover */
+    background-color: #d57eca; 
+    color: #1d2321; 
 }
 footer {
   margin-top: 60px;
@@ -594,7 +594,7 @@ p {
     }
 }
 
-/*media query*/
+
 @media (max-width: 768px) {
     .navbar-menu-toggle {
         display: block;
@@ -655,7 +655,7 @@ p {
     }
 }
 
-/* Enhanced Auth Button Styles */
+
 .auth-btn-link {
     text-decoration: none;
 }
@@ -728,7 +728,7 @@ p {
     box-shadow: 0 8px 25px rgba(215, 30, 6, 0.2);
 }
 
-/* Profile button styles */
+
 .auth-btn.profile-btn {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
@@ -741,7 +741,7 @@ p {
     background: linear-gradient(135deg, #764ba2, #667eea);
 }
 
-/* Mobile responsive styles for auth buttons */
+
 @media (max-width: 768px) {
     .auth-btn {
         padding: 10px 16px;
@@ -783,10 +783,10 @@ p {
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
-    background: #fff; /* Optional: add a background for contrast */
+    background: #fff; 
     border-bottom-left-radius: 48px;
     border-bottom-right-radius: 48px;
-    box-shadow: 0 8px 32px rgba(30,30,30,0.12); /* Optional: soft shadow */
+    box-shadow: 0 8px 32px rgba(30,30,30,0.12); 
 }
 
 .slider-images {
@@ -885,7 +885,7 @@ p {
     height: 40px;
     cursor: pointer;
     position: relative;
-    margin-right: 16px; /* Add space to the right for sign in button */
+    margin-right: 16px; 
     transition: transform 0.2s cubic-bezier(.4,2,.6,1), background 0.2s, color 0.2s;
 }
 .cart-icon:hover {

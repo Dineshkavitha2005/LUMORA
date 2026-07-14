@@ -557,7 +557,6 @@
     </div>
 
     <script>
-        // Password visibility toggle
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('password');
         
@@ -568,7 +567,6 @@
             this.classList.toggle('fa-eye-slash');
         });
 
-        // Password strength checker
         const passwordStrength = document.getElementById('passwordStrength');
         const strengthText = document.getElementById('strengthText');
         
@@ -576,7 +574,6 @@
             const password = this.value;
             const strength = calculatePasswordStrength(password);
             
-            // Remove all strength classes
             passwordStrength.classList.remove('strength-weak', 'strength-medium', 'strength-strong');
             
             if (password.length === 0) {
@@ -596,11 +593,9 @@
         function calculatePasswordStrength(password) {
             let strength = 0;
             
-            // Length check
             if (password.length >= 8) strength += 25;
             if (password.length >= 12) strength += 25;
             
-            // Complexity checks
             if (/[a-z]/.test(password)) strength += 10;
             if (/[A-Z]/.test(password)) strength += 10;
             if (/[0-9]/.test(password)) strength += 10;
@@ -609,7 +604,6 @@
             return strength;
         }
 
-        // Form validation and submission
         const signupForm = document.getElementById('signupForm');
         const signupBtn = document.getElementById('signupBtn');
         const signupText = document.getElementById('signupText');
@@ -617,11 +611,9 @@
         signupForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state
             signupBtn.disabled = true;
             signupText.textContent = 'Creating Account...';
             
-            // Get form data
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -632,7 +624,6 @@
             
             console.log('Signup attempted with:', formData);
             
-            // Simulate form submission
             setTimeout(() => {
                 sessionStorage.setItem('isLoggedIn', 'true');
                 sessionStorage.setItem('userName', formData.firstName + ' ' + formData.lastName);
@@ -642,7 +633,6 @@
             }, 2000);
         });
 
-        // Real-time form validation
         const inputs = document.querySelectorAll('.form-input');
         const termsCheckbox = document.getElementById('terms');
         
@@ -659,7 +649,6 @@
                 isValid = false;
             }
             
-            // Check password strength
             const password = passwordInput.value;
             const strength = calculatePasswordStrength(password);
             if (strength < 30) {
@@ -675,10 +664,8 @@
         
         termsCheckbox.addEventListener('change', validateForm);
         
-        // Initial validation
         validateForm();
 
-        // Social signup handlers
         document.querySelectorAll('.social-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const platform = this.classList.contains('google') ? 'Google' : 
@@ -687,7 +674,6 @@
             });
         });
 
-        // Add smooth animations on input focus
         inputs.forEach(input => {
             input.addEventListener('focus', function() {
                 this.parentNode.style.transform = 'translateY(-2px)';

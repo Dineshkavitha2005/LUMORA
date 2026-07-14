@@ -421,7 +421,7 @@
 
     <div class="product-detail-wrapper">
         <div class="product-detail-container">
-            <!-- Image Section -->
+            
             <div class="product-image-section">
                 <div class="product-image-wrapper">
                     <img id="product-image" class="product-detail-image" src="" alt="Product Image">
@@ -429,7 +429,7 @@
                 </div>
             </div>
 
-            <!-- Info Section -->
+            
             <div class="product-info-section">
                 <div class="product-rating">
                     <span class="stars">★★★★★</span>
@@ -444,7 +444,7 @@
 
                 <p id="product-description"></p>
 
-                <!-- Highlights -->
+                
                 <div class="highlights">
                     <div class="highlights-title">Why Choose This Perfume?</div>
                     <div class="highlight-item">
@@ -465,7 +465,7 @@
                     </div>
                 </div>
 
-                <!-- Specifications -->
+                
                 <div class="product-specs">
                     <div class="specs-title">
                         <i class="fas fa-vial"></i> Product Specifications
@@ -506,7 +506,7 @@
                     </div>
                 </div>
 
-                <!-- Delivery Info -->
+                
                 <div class="delivery-info">
                     <div class="delivery-item">
                         <i class="fas fa-truck"></i>
@@ -531,13 +531,13 @@
                     </div>
                 </div>
 
-                <!-- Quantity Selector -->
+                
                 <div class="quantity-selector">
                     <label for="quantity">Quantity:</label>
                     <input type="number" id="quantity" min="1" max="10" value="1">
                 </div>
 
-                <!-- Action Buttons -->
+                
                 <div class="product-detail-actions">
                     <button class="shop-btn" id="add-to-cart-btn">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
@@ -825,7 +825,6 @@
             const product = productsData.find(p => p.id === productId);
 
             if (product) {
-                // Set image and basic info
                 document.getElementById("product-image").src = product.image;
                 document.getElementById("product-image").alt = product.name;
                 document.getElementById("product-name").textContent = product.name;
@@ -835,13 +834,11 @@
                 document.getElementById("original-price").textContent = `₹${product.originalPrice}`;
                 document.getElementById("rating").textContent = `(${250 + productId * 15} Reviews)`;
 
-                // Set fragrance notes
                 document.getElementById("top-notes").textContent = product.topNotes;
                 document.getElementById("heart-notes").textContent = product.heartNotes;
                 document.getElementById("base-notes").textContent = product.baseNotes;
                 document.getElementById("perfect-for").textContent = product.perfectFor;
 
-                // Add to cart functionality
                 const addToCartBtn = document.getElementById("add-to-cart-btn");
                 addToCartBtn.addEventListener("click", () => {
                     const quantity = parseInt(document.getElementById("quantity").value) || 1;
@@ -858,7 +855,6 @@
                     
                     localStorage.setItem("cart", JSON.stringify(cart));
                     
-                    // Show success message
                     showAddToCartSuccess(quantity);
                     
                     setTimeout(() => {
@@ -866,7 +862,6 @@
                     }, 1500);
                 });
 
-                // Wishlist functionality
                 const wishlistBtn = document.getElementById("add-to-wishlist-btn");
                 wishlistBtn.addEventListener("click", () => {
                     const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
@@ -944,7 +939,6 @@
             setTimeout(() => notification.remove(), 3000);
         }
 
-        // Add animation styles
         const style = document.createElement('style');
         style.textContent = `
             @keyframes slideInRight {

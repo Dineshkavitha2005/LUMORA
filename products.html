@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Product Modal/Overlay Styles */
+        
         .product-modal {
             display: none;
             position: fixed;
@@ -28,7 +28,7 @@
             padding: 20px;
         }
 
-        /* Full Screen Image Modal */
+        
         .fullscreen-modal {
             display: none;
             position: fixed;
@@ -482,7 +482,7 @@
         </div>
 
     </nav>
-    <!-- sidenavbar -->
+    
     <div class="side-navbar">
         <p style="text-align: right;" onclick="closenav()"> <i class="fa-solid fa-circle-xmark"></i></p>
         <div class="side-navbar-links">
@@ -493,7 +493,7 @@
         </div>
     </div>
 
-    <!-- Product Modal -->
+    
     <div class="product-modal" id="productModal">
         <button class="modal-close" onclick="closeProductModal()">
             <i class="fas fa-times"></i>
@@ -589,7 +589,7 @@
         </div>
     </div>
 
-    <!-- Fullscreen Image Modal -->
+    
     <div class="fullscreen-modal" id="fullscreenModal">
         <div class="fullscreen-content">
             <button class="fullscreen-close" onclick="closeFullscreenImage()">
@@ -984,7 +984,6 @@
             document.getElementById('productModal').classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Set up modal buttons
             document.getElementById('modalAddToCart').onclick = () => {
                 const cart = JSON.parse(localStorage.getItem("cart")) || [];
                 cart.push({ 
@@ -1018,7 +1017,6 @@
             
             document.getElementById('fullscreenModal').classList.add('active');
             
-            // Close the product modal when opening fullscreen
             closeProductModal();
         }
     }
@@ -1049,21 +1047,18 @@
         setTimeout(() => notification.remove(), 3000);
     }
 
-    // Close modal when clicking outside
     document.getElementById('productModal').addEventListener('click', (e) => {
         if (e.target.id === 'productModal') {
             closeProductModal();
         }
     });
 
-    // Close fullscreen modal when clicking outside
     document.getElementById('fullscreenModal').addEventListener('click', (e) => {
         if (e.target.id === 'fullscreenModal') {
             closeFullscreenImage();
         }
     });
 
-    // Close modal with Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             if (document.getElementById('fullscreenModal').classList.contains('active')) {
@@ -1074,7 +1069,6 @@
         }
     });
 
-    // Existing shop button functionality
     const shopButtons = document.querySelectorAll(".shop-btn");
     shopButtons.forEach((button) => {
         button.addEventListener("click", (e) => {

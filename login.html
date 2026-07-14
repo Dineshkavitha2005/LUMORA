@@ -435,82 +435,43 @@
         </div>
 
         <script src="index.js" defer></script> <script>
-            // Dummy credentials
             const validCredentials = {
                 username: "testuser",
                 password: "testpass123"
             };
 
-            // Function to display custom message (defined in index.js, but included here for completeness if not linked)
-            // It's better practice to have this in index.js if it's a shared utility
-            // This local showMessage is now removed as index.js is linked.
-            /*
-            function showMessage(message, isSuccess = false) {
-                let messageBox = document.getElementById('messageBox');
-                if (!messageBox) {
-                    messageBox = document.createElement('div');
-                    messageBox.id = 'messageBox';
-                    document.body.appendChild(messageBox);
-                    messageBox.style.cssText = `
-                        display: none;
-                        position: fixed;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        padding: 15px 20px;
-                        border-radius: 8px;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                        z-index: 1000;
-                        text-align: center;
-                        color: white;
-                        font-family: Arial, sans-serif;
-                    `;
-                }
+            
 
-                messageBox.textContent = message;
-                messageBox.style.backgroundColor = isSuccess ? '#4CAF50' : '#f44336';
-                messageBox.style.display = 'block';
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 3000);
-            }
-            */
-
-            // Prevent form default submission and check credentials
             document.getElementById("loginForm").addEventListener("submit", function(event) {
                 event.preventDefault();
                 const user = document.getElementById("username").value;
                 const pass = document.getElementById("password").value;
 
                 if (user === validCredentials.username && pass === validCredentials.password) {
-                    // Set a flag in sessionStorage upon successful login
                     sessionStorage.setItem('isLoggedIn', 'true');
-                    // Use the globally available showMessage function from index.js
                     if (typeof showMessage === 'function') {
                         showMessage("Login successful! Redirecting...", true);
                     } else {
                         console.error("showMessage function not available.");
-                        // Fallback for immediate redirect if showMessage isn't loaded
                         window.location.href = "main.html";
                     }
 
                     setTimeout(() => {
                         window.location.href = "main.html";
-                    }, 1500); // Redirect after 1.5 seconds to show message
+                    }, 1500); 
                 } else {
                     if (typeof showMessage === 'function') {
                         showMessage("Invalid username or password.");
                     } else {
                         console.error("showMessage function not available.");
-                        alert("Invalid username or password."); // Basic alert fallback
+                        alert("Invalid username or password."); 
                     }
                 }
             });
 
-            // Password show/hide toggle
             const togglePassword = document.getElementById('togglePassword');
             const pwd = document.getElementById('password');
-            if (togglePassword && pwd) { // Added check to ensure elements exist
+            if (togglePassword && pwd) { 
                 togglePassword.addEventListener('click', function() {
                     if (pwd.type === 'password') {
                         pwd.type = 'text';

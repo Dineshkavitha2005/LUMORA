@@ -113,7 +113,7 @@
     </style>
 </head>
 <body>
-    <!-- navbar -->
+    
     <nav class="navbar">
         <h1 class="candal-regular logo-title">
             <span class="perfume-icon">
@@ -131,16 +131,16 @@
             <a href="products.html" id="cart-icon-link">
                 <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="width:30px;height:30px;vertical-align:center;">
             </a>
-            <!-- Existing buttons, now with IDs for easier manipulation -->
+            
             <a href="sign.html" id="signup-btn-link"><button class="nav-btn">Sign Up</button></a>
             <a href="login.html" id="login-btn-link"><button class="nav-btn" >Login</button></a>
-            <!-- Profile button will be dynamically added here by JavaScript -->
+            
         </div>
         <div class="navbar-menu-toggle">
             <p onclick="shownav()"><i class="fa-solid fa-bars"></i></p>
         </div>
     </nav>
-    <!-- Profile Page Content -->
+    
     <div class="profile-container">
         <div class="profile-header">
             <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="User" class="profile-avatar" />
@@ -194,14 +194,11 @@
             const logoutButton = document.getElementById('logoutButton');
             if (logoutButton) {
                 logoutButton.addEventListener('click', function() {
-                    // Clear the login flag from sessionStorage
                     sessionStorage.removeItem('isLoggedIn');
-                    // Redirect to the login page or home page
-                    window.location.href = 'login.html'; // Or 'main.html' if you want them to see the logged-out state
+                    window.location.href = 'login.html'; 
                 });
             }
 
-            // Also update navbar elements on acc.html load for consistency
             const signupBtnLink = document.getElementById('signup-btn-link');
             const loginBtnLink = document.getElementById('login-btn-link');
             const navbarActions = document.querySelector('.navbar-actions');

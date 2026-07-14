@@ -97,10 +97,10 @@
             <a href="products.html" id="cart-icon-link">
                 <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="width:30px;height:30px;vertical-align:center;">
             </a>
-            <!-- Existing buttons, now with IDs for easier manipulation -->
+            
             <a href="sign.html" id="signup-btn-link"><button class="nav-btn">Sign Up</button></a>
             <a href="login.html" id="login-btn-link"><button class="nav-btn" >Login</button></a>
-            <!-- Profile button will be dynamically added here by JavaScript -->
+            
         </div>
         <div class="navbar-menu-toggle">
             <p onclick="shownav()"><i class="fa-solid fa-bars"></i></p>
@@ -137,7 +137,7 @@
         </form>
     </div>
 
-    <!-- Footer -->
+    
     <footer class="footer">
         <div class="footer-container">
             <div class="payment-icons">
@@ -162,7 +162,6 @@
     </footer>
 
     <script>
-        // Function to display custom message (reusing the one from index.js/login.html)
         function showMessage(message, isSuccess = false) {
             let messageBox = document.getElementById('messageBox');
             if (!messageBox) {
@@ -200,7 +199,6 @@
             const locationInput = document.getElementById('location');
             const editProfileForm = document.getElementById('editProfileForm');
 
-            // Load existing profile data from sessionStorage
             const savedProfile = JSON.parse(sessionStorage.getItem('userProfile')) || {
                 fullName: 'Jayaprakash Kumar',
                 username: 'jayaprakashkumar2006',
@@ -219,7 +217,6 @@
                 editProfileForm.addEventListener('submit', function(event) {
                     event.preventDefault();
 
-                    // Get updated values from the form
                     const updatedProfile = {
                         fullName: fullNameInput.value,
                         username: usernameInput.value,
@@ -228,17 +225,15 @@
                         location: locationInput.value
                     };
 
-                    // Save updated profile data to sessionStorage
                     sessionStorage.setItem('userProfile', JSON.stringify(updatedProfile));
 
                     showMessage('Profile updated successfully!', true);
                     setTimeout(() => {
-                        window.location.href = 'acc.html'; // Redirect back to profile page
+                        window.location.href = 'acc.html'; 
                     }, 1500);
                 });
             }
 
-            // Navbar logic for edit-profile.html (same as acc.html and main.html)
             const signupBtnLink = document.getElementById('signup-btn-link');
             const loginBtnLink = document.getElementById('login-btn-link');
             const navbarActions = document.querySelector('.navbar-actions');
@@ -267,7 +262,6 @@
             }
         });
 
-        // Global functions for side navbar (if index.js is not loaded here)
         function shownav() {
             document.querySelector('.side-navbar').style.left = '0';
         }

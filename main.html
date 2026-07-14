@@ -35,7 +35,7 @@
 <body>
 
     <script src="index.js" defer></script>
-    <!-- navbar -->
+    
     <nav class="navbar">
         <h1 class="candal-regular logo-title">
         <span class="perfume-icon">
@@ -52,7 +52,7 @@
             <a href="products.html" id="cart-icon-link" class="cart-icon">
             <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Cart" style="width:30px;height:30px;vertical-align:center;">
             </a>
-            <!-- Enhanced auth buttons with modern design -->
+            
             <a href="sign.html" id="signup-btn-link" class="auth-btn-link">
                 <button class="auth-btn signup-btn">
                     <i class="fas fa-user-plus"></i>
@@ -65,13 +65,13 @@
                     <span>Login</span>
                 </button>
             </a>
-            <!-- Profile button will be dynamically added here by JavaScript -->
+            
         </div>
         <div class="navbar-menu-toggle">
             <p onclick="shownav()"><i class="fa-solid fa-bars"></i></p>
         </div>
     </nav>
-    <!-- sidenavbar -->
+    
     <div class="side-navbar">
         <span class="side-navbar-exit" style="float:right; cursor:pointer;">
             <i class="fa-solid fa-circle-xmark"></i>
@@ -82,12 +82,12 @@
             <a href="#products">Products</a>
             <a href="#about-us">About Us</a>
             <a href="#contact-us">Contact Us</a>
-            <!-- Add profile link to side navbar if needed, will be handled by JS -->
+            
             <a href="acc.html" id="side-profile-link" style="display: none;">Profile</a>
         </div>
     </div>
     <button class="navbar-menu-toggle">Menu</button>
-    <!-- header -->
+    
     <div class="header-slider">
         <div class="slider-images">
             <img src="s1UY-unsplash.jpg" class="slider-img active" alt="Slide 1">
@@ -108,7 +108,7 @@
         <div>💖 Trusted by Thousands</div>
     </div>
 
-    <!-- service -->
+    
     <div class="service">
         <div class="service-content">
             <div>
@@ -133,7 +133,7 @@
                     can tweak it!</p>
             </div>
         </div>
-        <!-- picture -->
+        
         <div class="all-products"><section class="section">
             <h2 class="section-title">New Arrivals</h2>
             <div class="product-grid">
@@ -267,18 +267,15 @@
     document.addEventListener('DOMContentLoaded', function() {
         const signupBtnLink = document.getElementById('signup-btn-link');
         const loginBtnLink = document.getElementById('login-btn-link');
-        const navbarActions = document.querySelector('.navbar-actions'); // Get the parent container
+        const navbarActions = document.querySelector('.navbar-actions'); 
         const sideProfileLink = document.getElementById('side-profile-link');
 
-        // Check if the user is logged in
         const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 
         if (isLoggedIn === 'true') {
-            // If logged in, hide auth buttons
             if (signupBtnLink) signupBtnLink.style.display = 'none';
             if (loginBtnLink) loginBtnLink.style.display = 'none';
 
-            // Create and append the profile button if it doesn't exist
             let profileBtnLink = document.getElementById('profile-btn-link');
             if (!profileBtnLink) {
                 profileBtnLink = document.createElement('a');
@@ -293,17 +290,16 @@
                 `;
                 navbarActions.appendChild(profileBtnLink);
             }
-            if (sideProfileLink) sideProfileLink.style.display = 'block'; // Show in side navbar
+            if (sideProfileLink) sideProfileLink.style.display = 'block'; 
         } else {
-            // If not logged in, ensure auth buttons are visible and profile is hidden
             if (signupBtnLink) signupBtnLink.style.display = 'block';
             if (loginBtnLink) loginBtnLink.style.display = 'block';
 
             let profileBtnLink = document.getElementById('profile-btn-link');
             if (profileBtnLink) {
-                profileBtnLink.remove(); // Remove profile button if user logs out
+                profileBtnLink.remove(); 
             }
-            if (sideProfileLink) sideProfileLink.style.display = 'none'; // Hide in side navbar
+            if (sideProfileLink) sideProfileLink.style.display = 'none'; 
         }
     });
 </script>

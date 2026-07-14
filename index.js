@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.navbar-menu-toggle');
     const closeBtn = document.querySelector('.side-navbar-exit');
 
-    // Side navigation toggle logic from your existing index.js
     if (menuBtn && sidenav) {
         menuBtn.addEventListener('click', () => {
             sidenav.classList.toggle('open');
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Password show/hide toggle logic (only if elements exist on the page)
     const togglePassword = document.getElementById('togglePassword');
     const pwd = document.getElementById('password');
     if (togglePassword && pwd) {
@@ -37,34 +35,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // REMOVED: Redundant login form submission logic from index.js
-    // This logic is now solely handled in login.html as per your existing file.
-    // The commented out block below is what was removed from the original index.js.
-    /*
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-        loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            const user = document.getElementById("username").value;
-            const pass = document.getElementById("password").value;
+    
 
-            if (user === validCredentials.username && pass === validCredentials.password) {
-                sessionStorage.setItem('isLoggedIn', 'true');
-                showMessage("Login successful! Redirecting...", true);
-                setTimeout(() => {
-                    window.location.href = "main.html";
-                }, 1500);
-            } else {
-                showMessage("Invalid username or password.");
-            }
-        });
-    }
-    */
-
-    // Slider functionality (kept as is)
     const slides = document.querySelectorAll('.slider-img');
     let current = 0;
-    if (slides.length > 0) { // Only run if slider images exist
+    if (slides.length > 0) { 
         setInterval(() => {
             slides[current].classList.remove('active');
             current = (current + 1) % slides.length;
@@ -73,11 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Function to display custom message (globally accessible)
-// This function's styles are inline within the JS and do not affect external CSS files.
 function showMessage(message, isSuccess = false) {
     let messageBox = document.getElementById('messageBox');
-    if (!messageBox) { // Create message box if it doesn't exist
+    if (!messageBox) { 
         messageBox = document.createElement('div');
         messageBox.id = 'messageBox';
         document.body.appendChild(messageBox);
@@ -104,17 +77,14 @@ function showMessage(message, isSuccess = false) {
     }, 3000);
 }
 
-// Global functions for side navbar (kept as is, but ensure these are called correctly from HTML if not part of DOMContentLoaded)
-// Note: Your main.html calls shownav() directly from onclick.
 function shownav() {
-    document.querySelector('.side-navbar').classList.add('open'); // Use classList.add to open
+    document.querySelector('.side-navbar').classList.add('open'); 
 }
 
-function closenav() { // This function is not directly used in your main.html's side-navbar-exit onclick.
-    document.querySelector('.side-navbar').classList.remove('open'); // Use classList.remove to close
+function closenav() { 
+    document.querySelector('.side-navbar').classList.remove('open'); 
 }
 
-// The toggleSearch function was in your index.js, keeping it if intended.
 function toggleSearch() {
   const bar = document.getElementById("searchBar");
   bar.classList.toggle("active");
